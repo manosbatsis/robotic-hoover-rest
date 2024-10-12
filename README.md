@@ -34,17 +34,18 @@ For quick examples see [doc/ERRORS_AND_VALIDATION.md](doc/ERRORS_AND_VALIDATION.
 
 ## Build HowTo
 
-Build the project and run tests:
+**Build the project** and run tests:
 
 	./gradlew clean build
 
-We only provide a couple of basic tests per API version:
+We only provide a couple of quick, basic tests per API version:
 
 - One for the "happy path" per assignment description and/or comments and assumptions.
 - One to verify our validation and exception handling libraries are configured properly; 
-  we assume their functionality is properly tested upstream. 
+  we assume their functionality is properly tested upstream. Thorough validation etc. testing 
+  is considered out-of-scope effort for this repo.
 
-Launch backend services:
+**Launch backend** services:
 
 	./gradlew app:bootRun
 
