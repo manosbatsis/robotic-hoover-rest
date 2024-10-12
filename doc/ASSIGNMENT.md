@@ -11,14 +11,16 @@ This room is divided up in a grid based on these dimensions; a room that has dim
 columns and 5 rows, so 25 possible hoover positions. The bottom left corner is the point of origin for
 our coordinate system, so as the room contains all coordinates its bottom left corner is defined by X: 0
 and Y: 0.
-  > [!TIP]
-  > The reference to cartesian coordinates might be redundant/missleading here. After all we only use 
-  > positive coordinates; the given room description in terms of rows, columns and positions makes that clear. 
-  > In cartesian terms, **we only use the first quadrant**.
-  > 
-  > Furthermore, room dimensions are one-based which makes them inconsistent to zero-based coordinates/positions used 
-  > throughout the spec; perhaps redefining those as zero-based, max (inclusive) boundary positions could be simpler 
-  > for API clients.
+
+> [!TIP]
+> The reference to cartesian coordinates might be redundant/missleading here. After all we only use 
+> positive coordinates; the given room description in terms of rows, columns and positions makes that clear. 
+> In cartesian terms, **we only use the first quadrant**.
+> 
+> Furthermore, room dimensions are one-based which makes them inconsistent to zero-based coordinates/positions used 
+> throughout the spec; perhaps redefining those as zero-based, max (inclusive) boundary positions could be simpler 
+> for API clients.
+
 - locations of patches of dirt, also defined by X and Y coordinates identifying the bottom left corner of
 those grid positions.
 - an initial hoover position (X and Y coordinates like patches of dirt) 
