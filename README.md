@@ -15,7 +15,7 @@ including comments/assumptions (see $${\color{green}Tip}$$ sections) in [docs/AS
 - app: Backend REST services application based on Spring Boot. See packages for API 
   [v1](app/src/main/kotlin/com/github/manosbatsis/robotichooverrest/app/instruction/v1) 
   and [v2](app/src/main/kotlin/com/github/manosbatsis/robotichooverrest/app/instruction/v2).
-- domain: Core implementation, see `HooverState` [here](domain/src/main/kotlin/com/github/manosbatsis/robotichooverrest/domain/instruction).
+- domain: Core implementation, mainly `HooverState` [here](domain/src/main/kotlin/com/github/manosbatsis/robotichooverrest/domain/instruction).
 
 This allows some flexibility, e.g. one can create a client module and even use that from within `app` module test 
 suites without circular dependencies. Breaking v1 and v2 bits to separate modules was considered unnecessary complexity 
@@ -26,7 +26,7 @@ for this repo.
 Based on our assignment comments this repo provides two API versions:
 
 - v1.0 as requested in the assignment
-- v2.0 according to our comments, see  [docs/ASSIGNMENT.md](doc/ASSIGNMENT.md).
+- v2.0 according to our comments, see $${\color{green}Tip}$$ sections in [docs/ASSIGNMENT.md](doc/ASSIGNMENT.md).
 
 ## RESTful Errors and Validation
 
