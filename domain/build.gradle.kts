@@ -6,8 +6,6 @@ plugins {
 
 dependencies {
 	implementation(project(":api"))
-	implementation(rootProject.libs.wimdeblauwe.error.handling)
-	implementation(rootProject.libs.springdoc.openapi.starter.webmvc.ui)
 }
 
 kotlin {
