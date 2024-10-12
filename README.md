@@ -5,7 +5,7 @@ Spring Boot service that navigates an imaginary robotic hoover
 ## Overview
 
 This repo was a sample assignment. You can find the annotated assignment 
-including comments/assumptions (see $${\color{green}Tips}$$) in [docs/ASSIGNMENT.md](doc/ASSIGNMENT.md).
+including comments/assumptions (see $${\color{green}Tip}$$ sections) in [docs/ASSIGNMENT.md](doc/ASSIGNMENT.md).
 
 ## Modules
 
