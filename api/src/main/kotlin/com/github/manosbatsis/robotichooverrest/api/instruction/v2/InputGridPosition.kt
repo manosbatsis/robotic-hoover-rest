@@ -3,6 +3,10 @@ package com.github.manosbatsis.robotichooverrest.api.instruction.v2
 import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.PositiveOrZero
 
+/**
+ * A [Position] implementation with nullable coordinates
+ * to properly utilise Bean Validation.
+ */
 data class InputGridPosition(
     @field:NotNull
     @field:PositiveOrZero
