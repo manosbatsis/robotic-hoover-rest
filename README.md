@@ -17,6 +17,10 @@ including comments/assumptions in [docs/ASSIGNMENT.md](doc/ASSIGNMENT.md).
   and [v2](app/src/main/kotlin/com/github/manosbatsis/robotichooverrest/app/instruction/v2).
 - domain: Core implementation, see `HooverState` [here](domain/src/main/kotlin/com/github/manosbatsis/robotichooverrest/domain/instruction).
 
+This allows some flexibility, e.g. one can create a client module and even use that from within `app` module test 
+suites without circular dependencies. Breaking v1 and v2 bits to separate modules was considered unnecessary complexity 
+for this repo.
+
 ## API Versions
 
 Based on our assignment comments this repo provides two API versions:
