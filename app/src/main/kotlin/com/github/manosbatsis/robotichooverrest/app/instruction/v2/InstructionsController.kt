@@ -6,17 +6,18 @@ import com.github.manosbatsis.robotichooverrest.domain.instruction.CardinalDirec
 import com.github.manosbatsis.robotichooverrest.domain.instruction.HooverState
 import org.springframework.web.bind.annotation.RestController
 
-@RestController
+@RestController("InstructionsControllerV2")
 class InstructionsController : InstructionsApi {
-    override fun processInstructions(input: InstructionsRequest): InstructionsResponse {
+    override fun processInstructions(input: InstructionsRequest?): InstructionsResponse {
         // Create our robotic hoover
+        val positions = input!!.positions!!
         val robot = HooverState(
-            initialPosition = input.positions.initial,
-            maxPosition = input.positions.boundsInclusive,
-            dirtyPositions = input.positions.dirty.toMutableSet()
+            initialPosition = positions.initial!!.valid(),
+            maxPosition = positions.boundsInclusive!!.valid(),
+            dirtyPositions = positions.dirty!!.map { it.valid() }.toMutableSet()
         )
         // Drive it per instructions
-        input.instructions.toCharArray().forEach { robot.move(CardinalDirection.valueOf(it)) }
+        input.instructions!!.toCharArray().forEach { robot.move(CardinalDirection.valueOf(it)) }
         // Build and send the response
         return InstructionsResponse(
             positions = InstructionsResponse.Positions(

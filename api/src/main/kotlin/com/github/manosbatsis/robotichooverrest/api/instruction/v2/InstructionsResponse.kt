@@ -1,9 +1,10 @@
 package com.github.manosbatsis.robotichooverrest.api.instruction.v2
 
-import com.github.manosbatsis.robotichooverrest.domain.instruction.GridPosition
+import io.swagger.v3.oas.annotations.media.Schema
 import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.PositiveOrZero
 
+@Schema(name = "InstructionsResponseV2")
 data class InstructionsResponse(
     @field:NotNull
     val positions: Positions,
@@ -12,10 +13,10 @@ data class InstructionsResponse(
 ){
     data class Positions(
         @field:NotNull
-        val final: GridPosition,
+        val final: ValidGridPosition,
         @field:NotNull
-        val cleaned: List<GridPosition>,
+        val cleaned: List<ValidGridPosition>,
         @field:NotNull
-        val effectiveInstructions: List<GridPosition>,
+        val effectiveInstructions: List<ValidGridPosition>,
     )
 }

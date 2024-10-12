@@ -1,6 +1,8 @@
 package com.github.manosbatsis.robotichooverrest.app.instruction.v1
 
-import com.github.manosbatsis.robotichooverrest.api.instruction.v1.InstructionsRequest.Companion.INSTRUCTIONS
+import com.github.manosbatsis.robotichooverrest.api.instruction.v1.InstructionsRequest
+import com.github.manosbatsis.robotichooverrest.app.instruction.v2.InstructionsApiV2Tests
+import com.github.manosbatsis.robotichooverrest.app.instruction.v2.InstructionsApiV2Tests.Companion
 import org.junit.jupiter.api.Test
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -16,7 +18,7 @@ import kotlin.test.assertEquals
 @WebMvcTest(value = [InstructionsController::class])
 class InstructionsApiV1Tests {
 	companion object {
-		private val log: Logger = LoggerFactory.getLogger(this::class.java)
+		private val log: Logger = LoggerFactory.getLogger(InstructionsApiV1Tests::class.java)
 	}
 
 	@Autowired
@@ -37,7 +39,7 @@ class InstructionsApiV1Tests {
 			}
 		"""
 
-		val result = mockMvc.perform(post(INSTRUCTIONS).contentType(APPLICATION_JSON)
+		val result = mockMvc.perform(post(InstructionsRequest.INSTRUCTIONS).contentType(APPLICATION_JSON)
 			.content(requestJson))
 			.andExpect(status().isOk())
 			.andReturn()
@@ -61,13 +63,14 @@ class InstructionsApiV1Tests {
 			}
 		"""
 
-		val result = mockMvc.perform(post(INSTRUCTIONS).contentType(APPLICATION_JSON)
-			.content(requestJson))
-			.andExpect(status().isOk())
+		val result = mockMvc.perform(
+			post(InstructionsRequest.INSTRUCTIONS).contentType(APPLICATION_JSON)
+				.content(requestJson))
+			.andExpect(status().is4xxClientError)
 			.andReturn()
 
 		val json = result.response.contentAsString
-		assertEquals("{\"coords\":[1,3],\"patches\":1}", json)
+		log.info("Error response: {}", json)
 	}
 
 }

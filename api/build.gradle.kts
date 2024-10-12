@@ -6,8 +6,8 @@ plugins {
 }
 
 dependencies {
-	implementation(project(":domain"))
 	implementation(libs.jakarta.validation.api)
+	implementation(rootProject.libs.springdoc.openapi.starter.webmvc.ui)
 }
 
 kotlin {

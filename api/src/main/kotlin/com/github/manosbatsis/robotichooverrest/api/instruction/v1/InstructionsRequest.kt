@@ -1,8 +1,10 @@
 package com.github.manosbatsis.robotichooverrest.api.instruction.v1
 
+import io.swagger.v3.oas.annotations.media.Schema
 import jakarta.validation.constraints.*
 import kotlin.io.path.Path
 
+@Schema(name = "InstructionsRequestV1")
 data class InstructionsRequest(
     @field:NotNull
     @field:Size(min = 2, max = 2)
