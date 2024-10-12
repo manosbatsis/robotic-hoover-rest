@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 interface InstructionsApi {
 
     @Operation(
+        operationId = "instructions_v1.0",
         summary = "Process instructions",
         description = "Process the given hoover instructions request and provide a report as response",
         tags = ["v1"]

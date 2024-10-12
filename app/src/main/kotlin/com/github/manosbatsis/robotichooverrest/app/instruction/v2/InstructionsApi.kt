@@ -13,9 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping
 interface InstructionsApi {
 
     @Operation(
+        operationId = "instructions_v2.0",
         summary = "Process instructions",
         description = "Process the given hoover instructions request and provide a report as response",
-        tags = ["v1"]
+        tags = ["v2"]
     )
     @PostMapping("instructions")
     fun processInstructions(
