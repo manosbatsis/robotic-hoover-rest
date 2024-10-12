@@ -4,14 +4,11 @@ import com.github.manosbatsis.robotichooverrest.api.instruction.v2.InstructionsR
 import com.github.manosbatsis.robotichooverrest.api.instruction.v2.InstructionsResponse
 import com.github.manosbatsis.robotichooverrest.domain.instruction.CardinalDirection
 import com.github.manosbatsis.robotichooverrest.domain.instruction.HooverState
-import jakarta.validation.Valid
-import jakarta.validation.constraints.NotNull
-import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 
 @RestController("InstructionsControllerV2")
 class InstructionsController : InstructionsApi {
-    override fun processInstructions(@RequestBody @Valid @NotNull input: InstructionsRequest?): InstructionsResponse {
+    override fun processInstructions(input: InstructionsRequest?): InstructionsResponse {
         // Create our robotic hoover
         val positions = input!!.positions!!
         val robot = HooverState(
