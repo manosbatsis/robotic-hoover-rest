@@ -1,5 +1,6 @@
 package com.github.manosbatsis.robotichooverrest.api.instruction.v2
 
+import com.github.manosbatsis.robotichooverrest.api.instruction.ValidGridPosition
 import io.swagger.v3.oas.annotations.media.Schema
 import jakarta.validation.Valid
 import jakarta.validation.constraints.NotNull

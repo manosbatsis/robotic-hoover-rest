@@ -1,4 +1,4 @@
-package com.github.manosbatsis.robotichooverrest.api.instruction.v2
+package com.github.manosbatsis.robotichooverrest.api.instruction
 
 import jakarta.validation.constraints.PositiveOrZero
 

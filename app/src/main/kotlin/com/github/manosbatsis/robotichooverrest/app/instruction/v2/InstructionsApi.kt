@@ -20,7 +20,20 @@ interface InstructionsApi {
     @Operation(
         summary = "Process instructions",
         description = "Process the given hoover instructions request and provide a report as response",
-        tags = ["v2"]
+        tags = ["v1"]
+    )
+    @ApiResponses(
+        value = [
+            ApiResponse(
+                responseCode = "200",
+                description = "Successful operation",
+                content = arrayOf(Content(schema = Schema(implementation = InstructionsResponse::class)))
+            ),
+            ApiResponse(
+                description = "Unsuccessful operation",
+                content = arrayOf(Content(schema = Schema(implementation = ApiErrorResponse::class)))
+            )
+        ]
     )
     @PostMapping("instructions")
     fun processInstructions(

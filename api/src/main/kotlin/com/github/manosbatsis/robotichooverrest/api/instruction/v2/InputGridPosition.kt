@@ -1,5 +1,7 @@
 package com.github.manosbatsis.robotichooverrest.api.instruction.v2
 
+import com.github.manosbatsis.robotichooverrest.api.instruction.Position
+import com.github.manosbatsis.robotichooverrest.api.instruction.ValidGridPosition
 import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.PositiveOrZero
 

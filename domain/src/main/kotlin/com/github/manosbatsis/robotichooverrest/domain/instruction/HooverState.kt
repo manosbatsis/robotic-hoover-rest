@@ -1,6 +1,6 @@
 package com.github.manosbatsis.robotichooverrest.domain.instruction
 
-import com.github.manosbatsis.robotichooverrest.api.instruction.v2.ValidGridPosition
+import com.github.manosbatsis.robotichooverrest.api.instruction.ValidGridPosition
 import java.util.LinkedList
 
 /**
