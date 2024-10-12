@@ -8,12 +8,12 @@ import kotlin.io.path.Path
 data class InstructionsRequest(
     @field:NotNull
     @field:Size(min = 2, max = 2)
-    val roomSize: List<@Positive Int>,
+    val roomSize: List<@NotNull @Positive Int>,
     @field:NotNull
     @field:Size(min = 2, max = 2)
-    val coords: List<@PositiveOrZero Int>,
+    val coords: List<@NotNull @PositiveOrZero Int>,
     @field:NotNull
-    val patches: List<@Size(min = 2, max = 2) List<@PositiveOrZero Int>>,
+    val patches: List<@Size(min = 2, max = 2) List<@NotNull @PositiveOrZero Int>>,
     @field:Pattern(regexp = "[NESW]+\$")
     val instructions: String
 ){
