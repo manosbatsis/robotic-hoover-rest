@@ -14,7 +14,7 @@ class InstructionsController : InstructionsApi {
         val robot = HooverState(
             initialPosition = ValidGridPosition(x = input!!.coords!!.first(), y = input.coords!!.last()),
             maxPosition = ValidGridPosition(x = input.roomSize!!.first() - 1, y = input!!.roomSize!!.last() - 1),
-            dirtyPositions = input.patches!!.map { ValidGridPosition(x = it.first(), y = it.last()) }.toMutableSet()
+            dirtyPositions = input.patches!!.map { ValidGridPosition(x = it.first(), y = it.last()) }
         )
         // Drive it per instructions
         input.instructions.toCharArray().forEach { robot.move(CardinalDirection.valueOf(it)) }

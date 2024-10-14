@@ -21,6 +21,7 @@ data class InstructionsRequest(
         val INSTRUCTIONS = Path(BASEPATH).resolve("instructions").toUri()
     }
 
+    @Schema(name = "InstructionsRequestV2.Positions")
     data class Positions(
         @field:NotNull
         @field:Valid

@@ -14,7 +14,7 @@ class InstructionsController : InstructionsApi {
         val robot = HooverState(
             initialPosition = positions.initial!!.valid(),
             maxPosition = positions.boundsInclusive!!.valid(),
-            dirtyPositions = positions.dirty!!.map { it.valid() }.toMutableSet()
+            dirtyPositions = positions.dirty!!.map { it.valid() }
         )
         // Drive it per instructions
         input.instructions!!.toCharArray().forEach { robot.move(CardinalDirection.valueOf(it)) }

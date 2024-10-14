@@ -1,8 +1,6 @@
 package com.github.manosbatsis.robotichooverrest.app.instruction.v1
 
 import com.github.manosbatsis.robotichooverrest.api.instruction.v1.InstructionsRequest
-import com.github.manosbatsis.robotichooverrest.app.instruction.v2.InstructionsApiV2Tests
-import com.github.manosbatsis.robotichooverrest.app.instruction.v2.InstructionsApiV2Tests.Companion
 import org.junit.jupiter.api.Test
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory

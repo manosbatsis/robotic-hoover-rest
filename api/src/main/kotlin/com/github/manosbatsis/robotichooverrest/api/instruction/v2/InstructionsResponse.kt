@@ -15,6 +15,7 @@ data class InstructionsResponse(
     @field:PositiveOrZero
     val cleanedCount: Int
 ){
+    @Schema(name = "InstructionsResponseV2.Position")
     data class Positions(
         @field:NotNull
         @field:Valid

@@ -6,14 +6,17 @@ import java.util.LinkedList
 /**
  * @param initialPosition the initial position. Will be corrected to the closest position within bounds.
  * @property maxPosition the max X and Y coordinates this hoover can move to, inclusive.
- * @property dirtyPositions the patches assumed to be dirty.
+ * @param dirtyPositions the patches assumed to be dirty.
  * @constructor Creates a new instance already placed at its effective initial position.
  */
 class HooverState(
     initialPosition: ValidGridPosition,
     private val maxPosition: ValidGridPosition,
-    private val dirtyPositions: MutableSet<ValidGridPosition>
+    dirtyPositions: Collection<ValidGridPosition>
 ) {
+
+    /** Used to keep track of which positions are still dirty. Mutable copy of dirty positions given as input */
+    private val dirty: MutableSet<ValidGridPosition> = dirtyPositions.toMutableSet()
 
     /** Maintains a complete history of effective positions from initial to final. Takes skidding into account */
     val positionStack = LinkedList<ValidGridPosition>()
@@ -47,7 +50,7 @@ class HooverState(
     /** Move to the new position and clean if still dirty */
     private fun moveToEffective(position: ValidGridPosition): HooverState {
         positionStack.push(position)
-        if (dirtyPositions.remove(position)) cleanedPatches.push(position)
+        if (dirty.remove(position)) cleanedPatches.push(position)
         return this
     }
 
