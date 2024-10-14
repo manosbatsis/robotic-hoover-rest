@@ -1,6 +1,6 @@
 package com.github.manosbatsis.robotichooverrest.domain.instruction
 
-import com.github.manosbatsis.robotichooverrest.api.instruction.ValidGridPosition
+import com.github.manosbatsis.robotichooverrest.api.instruction.GridPosition
 import java.util.LinkedList
 
 /**
@@ -10,23 +10,23 @@ import java.util.LinkedList
  * @constructor Creates a new instance already placed at its effective initial position.
  */
 class HooverState(
-    initialPosition: ValidGridPosition,
-    private val maxPosition: ValidGridPosition,
-    dirtyPositions: Collection<ValidGridPosition>
+    initialPosition: GridPosition,
+    private val maxPosition: GridPosition,
+    dirtyPositions: Collection<GridPosition>
 ) {
 
     /** Used to keep track of which positions are still dirty. Mutable copy of dirty positions given as input */
-    private val dirty: MutableSet<ValidGridPosition> = dirtyPositions.toMutableSet()
+    private val dirty: MutableSet<GridPosition> = dirtyPositions.toMutableSet()
 
     /** Maintains a complete history of effective positions from initial to final. Takes skidding into account */
-    val positionStack = LinkedList<ValidGridPosition>()
+    val positionStack = LinkedList<GridPosition>()
 
     /** The current position within the given grid for this hoover */
-    val currentPosition: ValidGridPosition
+    val currentPosition: GridPosition
         get() = positionStack.peek()
 
     /** Maintains a complete history of cleaned positions */
-    val cleanedPatches = LinkedList<ValidGridPosition>()
+    val cleanedPatches = LinkedList<GridPosition>()
 
     /** The number of patches that have already been cleaned */
     val cleanCount
@@ -40,7 +40,7 @@ class HooverState(
             else -> i
         }
         moveToEffective(
-            ValidGridPosition(
+            GridPosition(
                 x = toEffective(initialPosition.x, maxPosition.x),
                 y = toEffective(initialPosition.y, maxPosition.y),
             )
@@ -48,7 +48,7 @@ class HooverState(
     }
 
     /** Move to the new position and clean if still dirty */
-    private fun moveToEffective(position: ValidGridPosition): HooverState {
+    private fun moveToEffective(position: GridPosition): HooverState {
         positionStack.push(position)
         if (dirty.remove(position)) cleanedPatches.push(position)
         return this

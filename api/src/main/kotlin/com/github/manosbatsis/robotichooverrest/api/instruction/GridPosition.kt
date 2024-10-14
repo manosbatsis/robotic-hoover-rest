@@ -6,7 +6,7 @@ import jakarta.validation.constraints.PositiveOrZero
  * A [Position] implementation with valid,
  * i.e. non-null coordinates.
  */
-data class ValidGridPosition(
+data class GridPosition(
     @field:PositiveOrZero
     override val x: Int,
     @field:PositiveOrZero

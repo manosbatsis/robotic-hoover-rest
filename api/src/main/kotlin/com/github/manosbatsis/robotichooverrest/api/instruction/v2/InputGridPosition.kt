@@ -1,7 +1,7 @@
 package com.github.manosbatsis.robotichooverrest.api.instruction.v2
 
 import com.github.manosbatsis.robotichooverrest.api.instruction.Position
-import com.github.manosbatsis.robotichooverrest.api.instruction.ValidGridPosition
+import com.github.manosbatsis.robotichooverrest.api.instruction.GridPosition
 import jakarta.validation.constraints.NotNull
 import jakarta.validation.constraints.PositiveOrZero
 
@@ -18,7 +18,7 @@ data class InputGridPosition(
     override val y: Int?
 ): Position {
 
-    fun valid() = ValidGridPosition(
+    fun gridPosition() = GridPosition(
         x = x ?: error("Source member x is null"),
         y = y ?: error("Source member y is null"),
     )

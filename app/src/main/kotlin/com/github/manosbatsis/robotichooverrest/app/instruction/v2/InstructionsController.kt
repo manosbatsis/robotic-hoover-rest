@@ -12,9 +12,9 @@ class InstructionsController : InstructionsApi {
         // Create our robotic hoover
         val positions = input!!.positions!!
         val robot = HooverState(
-            initialPosition = positions.initial!!.valid(),
-            maxPosition = positions.boundsInclusive!!.valid(),
-            dirtyPositions = positions.dirty!!.map { it.valid() }
+            initialPosition = positions.initial!!.gridPosition(),
+            maxPosition = positions.boundsInclusive!!.gridPosition(),
+            dirtyPositions = positions.dirty!!.map { it.gridPosition() }
         )
         // Drive it per instructions
         input.instructions!!.toCharArray().forEach { robot.move(CardinalDirection.valueOf(it)) }
