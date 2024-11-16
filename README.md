@@ -42,12 +42,13 @@ For quick examples see [doc/ERRORS_AND_VALIDATION.md](doc/ERRORS_AND_VALIDATION.
 
 	./gradlew clean build
 
-We only provide a couple of quick, basic tests per API version:
+We only provide basic tests per API version:
 
 - One for the "happy path" per assignment description and/or comments and assumptions.
 - One to verify our validation and exception handling libraries are configured properly; 
   we assume their functionality is properly tested upstream. Thorough validation etc. testing 
   is considered out-of-scope effort for this repo.
+- Equivalent alternatives of the above tests using the corresponding API clients.
 
 **Launch backend** services:
 
