@@ -18,13 +18,11 @@ import java.util.LinkedList
 /**
  * A state for our hoover robot.
  *
- * @param initialPosition the initial position. Will be corrected to the closest
- *   position within bounds.
+ * @param initialPosition the initial position. Will be corrected to the closest position within
+ *   bounds.
  * @param dirtyPositions the patches assumed to be dirty.
- * @property maxPosition the max X and Y coordinates this hoover can move to,
- *   inclusive.
- * @constructor Creates a new instance already placed at its effective initial
- *   position.
+ * @property maxPosition the max X and Y coordinates this hoover can move to, inclusive.
+ * @constructor Creates a new instance already placed at its effective initial position.
  */
 class HooverRobotState(
     initialPosition: GridPosition,
@@ -33,14 +31,14 @@ class HooverRobotState(
 ) {
 
     /**
-     * Used to keep track of which positions are still dirty. Mutable copy of
-     * dirty positions given as input
+     * Used to keep track of which positions are still dirty. Mutable copy of dirty positions given
+     * as input
      */
     private val dirty: MutableSet<GridPosition> = dirtyPositions.toMutableSet()
 
     /**
-     * Maintains a complete history of effective positions from initial to
-     * final. Takes skidding into account
+     * Maintains a complete history of effective positions from initial to final. Takes skidding
+     * into account
      */
     val positionStack = LinkedList<GridPosition>()
 
@@ -79,29 +77,21 @@ class HooverRobotState(
 
     /** Move to a new position northward, possibly skidding */
     fun moveNorth(): HooverRobotState =
-        moveToEffective(
-            currentPosition.copy(
-                y = minOf(currentPosition.y + 1, maxPosition.y)))
+        moveToEffective(currentPosition.copy(y = minOf(currentPosition.y + 1, maxPosition.y)))
 
     /** Move to a new position southward, possibly skidding */
     fun moveSouth(): HooverRobotState =
-        moveToEffective(
-            currentPosition.copy(y = maxOf(currentPosition.y - 1, 0)))
+        moveToEffective(currentPosition.copy(y = maxOf(currentPosition.y - 1, 0)))
 
     /** Move to a new position eastward, possibly skidding */
     fun moveEast(): HooverRobotState =
-        moveToEffective(
-            currentPosition.copy(
-                x = minOf(currentPosition.x + 1, maxPosition.x)))
+        moveToEffective(currentPosition.copy(x = minOf(currentPosition.x + 1, maxPosition.x)))
 
     /** Move to a new position westward, possibly skidding */
     fun moveWest(): HooverRobotState =
-        moveToEffective(
-            currentPosition.copy(x = maxOf(currentPosition.x - 1, 0)))
+        moveToEffective(currentPosition.copy(x = maxOf(currentPosition.x - 1, 0)))
 
-    /**
-     * Move to a new position towards the given [direction], possibly skidding
-     */
+    /** Move to a new position towards the given [direction], possibly skidding */
     fun move(direction: CardinalDirection): HooverRobotState =
         when (direction) {
             CardinalDirection.N -> moveNorth()

@@ -10,16 +10,8 @@
  * You should have received a copy of the GNU Affero General Public License along with Foobar. If not, see
  * <https://www.gnu.org/licenses/>.
  */
-package com.github.manosbatsis.robotichooverrest.api.instruction.v1
+package com.github.manosbatsis.robotichooverrest.client.instruction
 
-import io.swagger.v3.oas.annotations.media.Schema
-import jakarta.validation.constraints.Min
-import jakarta.validation.constraints.NotNull
-import jakarta.validation.constraints.PositiveOrZero
-import jakarta.validation.constraints.Size
+import io.github.wimdeblauwe.errorhandlingspringbootstarter.ApiErrorResponse
 
-@Schema(name = "InstructionsResponseV1")
-data class InstructionsResponse(
-    @field:NotNull @field:Size(min = 2, max = 2) val coords: List<@PositiveOrZero Int>,
-    @field:NotNull @field:Min(0) val patches: Int
-)
+class ApiErrorResponseException(val apiErrorResponse: ApiErrorResponse) : RuntimeException()

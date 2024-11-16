@@ -42,19 +42,12 @@ interface InstructionsApi {
                     content =
                         arrayOf(
                             Content(
-                                schema =
-                                    Schema(
-                                        implementation =
-                                            InstructionsResponse::class)))),
+                                schema = Schema(implementation = InstructionsResponse::class)))),
                 ApiResponse(
                     description = "Unsuccessful operation",
                     content =
                         arrayOf(
-                            Content(
-                                schema =
-                                    Schema(
-                                        implementation =
-                                            ApiErrorResponse::class))))])
+                            Content(schema = Schema(implementation = ApiErrorResponse::class))))])
     @PostMapping("instructions")
     fun processInstructions(
         @RequestBody @Valid @NotNull input: InstructionsRequest?

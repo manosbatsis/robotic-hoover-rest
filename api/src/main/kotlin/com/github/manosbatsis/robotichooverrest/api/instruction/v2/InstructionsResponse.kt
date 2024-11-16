@@ -27,8 +27,6 @@ data class InstructionsResponse(
     data class Positions(
         @field:NotNull @field:Valid val final: GridPosition,
         @field:NotNull @field:Valid val cleaned: List<GridPosition>,
-        @field:NotNull
-        @field:Valid
-        val effectiveInstructions: List<GridPosition>,
+        @field:NotNull @field:Valid val effectiveInstructions: List<GridPosition>,
     )
 }

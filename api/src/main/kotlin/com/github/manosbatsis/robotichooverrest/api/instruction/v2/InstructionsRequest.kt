@@ -21,21 +21,17 @@ import kotlin.io.path.Path
 @Schema(name = "InstructionsRequestV2")
 data class InstructionsRequest(
     @field:NotNull @field:Valid val positions: Positions? = null,
-    @field:NotNull
-    @field:Pattern(regexp = "[NESW]+\$")
-    val instructions: String? = null
+    @field:NotNull @field:Pattern(regexp = "[NESW]+\$") val instructions: String? = null
 ) {
     companion object {
-        const val BASEPATH = "/v2.0/hoover"
+        const val BASEPATH = "/api/v2.0/hoover"
         val INSTRUCTIONS = Path(BASEPATH).resolve("instructions").toUri()
     }
 
     @Schema(name = "InstructionsRequestV2.Positions")
     data class Positions(
         @field:NotNull @field:Valid val initial: InputGridPosition? = null,
-        @field:NotNull
-        @field:Valid
-        val boundsInclusive: InputGridPosition? = null,
+        @field:NotNull @field:Valid val boundsInclusive: InputGridPosition? = null,
         @field:NotNull @field:Valid val dirty: Set<InputGridPosition>? = null,
     )
 }

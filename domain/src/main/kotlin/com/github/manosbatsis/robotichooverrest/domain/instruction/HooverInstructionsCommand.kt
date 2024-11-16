@@ -25,13 +25,10 @@ data class HooverInstructionsCommand(
     override fun exec(): HooverRobotState {
 
         // Create our robotic hoover
-        val hooverState =
-            HooverRobotState(initialPosition, maxPosition, dirtyPositions)
+        val hooverState = HooverRobotState(initialPosition, maxPosition, dirtyPositions)
 
         // Drive it per instructions
-        instructions.toCharArray().forEach {
-            hooverState.move(CardinalDirection.valueOf(it))
-        }
+        instructions.toCharArray().forEach { hooverState.move(CardinalDirection.valueOf(it)) }
 
         return hooverState
     }

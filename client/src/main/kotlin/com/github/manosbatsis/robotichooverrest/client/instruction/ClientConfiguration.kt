@@ -10,16 +10,23 @@
  * You should have received a copy of the GNU Affero General Public License along with Foobar. If not, see
  * <https://www.gnu.org/licenses/>.
  */
-package com.github.manosbatsis.robotichooverrest.api.instruction.v1
+package com.github.manosbatsis.robotichooverrest.client.instruction
 
-import io.swagger.v3.oas.annotations.media.Schema
-import jakarta.validation.constraints.Min
-import jakarta.validation.constraints.NotNull
-import jakarta.validation.constraints.PositiveOrZero
-import jakarta.validation.constraints.Size
+import com.fasterxml.jackson.databind.ObjectMapper
+import feign.Logger
+import feign.codec.ErrorDecoder
+import feign.okhttp.OkHttpClient
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
 
-@Schema(name = "InstructionsResponseV1")
-data class InstructionsResponse(
-    @field:NotNull @field:Size(min = 2, max = 2) val coords: List<@PositiveOrZero Int>,
-    @field:NotNull @field:Min(0) val patches: Int
-)
+@Configuration
+class ClientConfiguration {
+    @Autowired lateinit var objectMapper: ObjectMapper
+
+    @Bean fun client() = OkHttpClient()
+
+    @Bean fun feignLoggerLevel() = Logger.Level.FULL
+
+    @Bean fun errorDecoder(): ErrorDecoder = CustomErrorDecoder(objectMapper)
+}

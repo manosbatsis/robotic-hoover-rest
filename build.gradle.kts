@@ -16,10 +16,10 @@ spotless {
     target("**/*.kt")
     // version, style and all configurations here are optional
     ktfmt("0.53").googleStyle().configure {
-      it.setMaxWidth(80)
+      it.setMaxWidth(100)
       it.setBlockIndent(4)
       it.setContinuationIndent(4)
-      it.setRemoveUnusedImports(false)
+      it.setRemoveUnusedImports(true)
       it.setManageTrailingCommas(false)
     }
     trimTrailingWhitespace()

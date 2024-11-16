@@ -20,9 +20,7 @@ import com.github.manosbatsis.robotichooverrest.domain.instruction.HooverRobotSt
 /** Helper component to convert between data object types */
 class InstructionsMapper {
 
-    fun instructionsResponse(
-        hooverState: HooverRobotState
-    ): InstructionsResponse {
+    fun instructionsResponse(hooverState: HooverRobotState): InstructionsResponse {
         return InstructionsResponse(
             positions =
                 InstructionsResponse.Positions(
@@ -32,9 +30,7 @@ class InstructionsMapper {
             cleanedCount = hooverState.cleanCount)
     }
 
-    fun hooverInstructionsCommand(
-        input: InstructionsRequest
-    ): HooverInstructionsCommand {
+    fun hooverInstructionsCommand(input: InstructionsRequest): HooverInstructionsCommand {
         val positions = input.positions!!
         val command =
             HooverInstructionsCommand(

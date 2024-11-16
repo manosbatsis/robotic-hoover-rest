@@ -27,8 +27,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 @WebMvcTest(value = [InstructionsController::class])
 class InstructionsApiV2Tests {
     companion object {
-        private val log: Logger =
-            LoggerFactory.getLogger(InstructionsApiV2Tests::class.java)
+        private val log: Logger = LoggerFactory.getLogger(InstructionsApiV2Tests::class.java)
     }
 
     @Autowired private lateinit var mockMvc: MockMvc

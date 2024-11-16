@@ -1,17 +1,22 @@
 [versions]
+jackson-databind-version = "2.17.2"
 jakarta-validation-api-version = "3.0.2"
 kotlin-version = "1.9.25"
 springdoc-version = "2.6.0"
 spring-boot-version = "3.3.4"
 spring-boot-management-version = "1.1.6"
+spring-cloud-dependencies-version = "2023.0.3"
 spotless-version = "7.0.0.BETA3"
 wimdeblauwe-error-handling-version = "4.5.0"
+
 
 [libraries]
 wimdeblauwe-error-handling = { module = "io.github.wimdeblauwe:error-handling-spring-boot-starter", version.ref = "wimdeblauwe-error-handling-version" }
 springdoc-openapi-starter-webmvc-ui = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "springdoc-version" }
 jakarta-validation-api = { module = "jakarta.validation:jakarta.validation-api", version.ref = "jakarta-validation-api-version" }
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson-databind-version" }
 
+spring-cloud-dependencies = { module = "org.springframework.cloud:spring-cloud-dependencies", version.ref = "spring-cloud-dependencies-version" }
 
 [bundles]
 

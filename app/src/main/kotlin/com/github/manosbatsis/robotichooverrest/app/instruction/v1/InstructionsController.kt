@@ -24,9 +24,7 @@ class InstructionsController : InstructionsApi {
     private val mapper = InstructionsMapper()
     private val executor = HooverInstructionsExecutor()
 
-    override fun processInstructions(
-        input: InstructionsRequest?
-    ): InstructionsResponse {
+    override fun processInstructions(input: InstructionsRequest?): InstructionsResponse {
 
         // Convert request input to an instructions command
         val command = mapper.hooverInstructionsCommand(input!!)
