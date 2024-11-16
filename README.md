@@ -7,6 +7,13 @@ Spring Boot service that navigates an imaginary robotic hoover
 This repo was a sample assignment. You can find the annotated assignment 
 including comments/assumptions (see $${\color{green}Tip}$$ sections) in [docs/ASSIGNMENT.md](doc/ASSIGNMENT.md).
 
+### API Versions
+
+Based on our assignment comments (see above) this repo provides two API versions:
+
+- v1.0 as requested in the assignment
+- v2.0 according to our comments.
+
 ## Modules
 
 - api: Open API definitions, models and constants useful to API clients. 
@@ -19,22 +26,15 @@ including comments/assumptions (see $${\color{green}Tip}$$ sections) in [docs/AS
   see packages [here](client/src/main/kotlin/com/github/manosbatsis/robotichooverrest/client/instruction).
 - domain: Framework-independent core implementation, see package [here](domain/src/main/kotlin/com/github/manosbatsis/robotichooverrest/domain/instruction).
 
-This allows some flexibility, e.g. one can create a client module and even use that from within `app` module test 
-suites without circular dependencies. Breaking v1 and v2 bits to separate modules was considered unnecessary complexity 
-for this repo.
-
-## API Versions
-
-Based on our assignment comments this repo provides two API versions:
-
-- v1.0 as requested in the assignment
-- v2.0 according to our comments, see $${\color{green}Tip}$$ sections in [docs/ASSIGNMENT.md](doc/ASSIGNMENT.md).
+This allows some flexibility and proper decoupling, like creating the client module and even use that from within 
+`app` module tests without circular dependencies. Breaking v1 and v2 bits to separate modules was considered 
+unnecessary complexity for this repo.
 
 ## RESTful Errors and Validation
 
 The app uses [Bean Validation](https://beanvalidation.org/)
-and an [wimdeblauwe's error handling starter](https://wimdeblauwe.github.io/error-handling-spring-boot-starter/current/) 
-to provide input validation and RESTful exception handling respectively, both in a horizontal manner. 
+and [wimdeblauwe's error handling starter](https://wimdeblauwe.github.io/error-handling-spring-boot-starter/current/) 
+to provide input validation and RESTful exception handling respectively. 
 
 For quick examples see [doc/ERRORS_AND_VALIDATION.md](doc/ERRORS_AND_VALIDATION.md).
 
