@@ -14,33 +14,26 @@ package com.github.manosbatsis.robotichooverrest.app.instruction.v2
 
 import com.github.manosbatsis.robotichooverrest.api.instruction.v2.InstructionsRequest
 import com.github.manosbatsis.robotichooverrest.api.instruction.v2.InstructionsResponse
-import com.github.manosbatsis.robotichooverrest.domain.instruction.CardinalDirection
-import com.github.manosbatsis.robotichooverrest.domain.instruction.HooverState
+import com.github.manosbatsis.robotichooverrest.domain.instruction.HooverInstructionsExecutor
 import org.springframework.web.bind.annotation.RestController
 
 @RestController("InstructionsControllerV2")
 class InstructionsController : InstructionsApi {
+
+    private val mapper = InstructionsMapper()
+    private val executor = HooverInstructionsExecutor()
+
     override fun processInstructions(
         input: InstructionsRequest?
     ): InstructionsResponse {
-        // Create our robotic hoover
-        val positions = input!!.positions!!
-        val robot =
-            HooverState(
-                initialPosition = positions.initial!!.gridPosition(),
-                maxPosition = positions.boundsInclusive!!.gridPosition(),
-                dirtyPositions = positions.dirty!!.map { it.gridPosition() })
-        // Drive it per instructions
-        input.instructions!!.toCharArray().forEach {
-            robot.move(CardinalDirection.valueOf(it))
-        }
-        // Build and send the response
-        return InstructionsResponse(
-            positions =
-                InstructionsResponse.Positions(
-                    final = robot.currentPosition,
-                    cleaned = robot.cleanedPatches,
-                    effectiveInstructions = robot.positionStack),
-            cleanedCount = robot.cleanCount)
+
+        // Convert request input to an instructions command
+        val command = mapper.hooverInstructionsCommand(input!!)
+
+        // Execute the command and obtain the result state
+        val hooverState = executor.exec(command)
+
+        // Convert state to response and send
+        return mapper.instructionsResponse(hooverState)
     }
 }

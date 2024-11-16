@@ -16,6 +16,8 @@ import com.github.manosbatsis.robotichooverrest.api.instruction.GridPosition
 import java.util.LinkedList
 
 /**
+ * A state for our hoover robot.
+ *
  * @param initialPosition the initial position. Will be corrected to the closest
  *   position within bounds.
  * @param dirtyPositions the patches assumed to be dirty.
@@ -24,7 +26,7 @@ import java.util.LinkedList
  * @constructor Creates a new instance already placed at its effective initial
  *   position.
  */
-class HooverState(
+class HooverRobotState(
     initialPosition: GridPosition,
     private val maxPosition: GridPosition,
     dirtyPositions: Collection<GridPosition>
@@ -69,38 +71,38 @@ class HooverState(
     }
 
     /** Move to the new position and clean if still dirty */
-    private fun moveToEffective(position: GridPosition): HooverState {
+    private fun moveToEffective(position: GridPosition): HooverRobotState {
         positionStack.push(position)
         if (dirty.remove(position)) cleanedPatches.push(position)
         return this
     }
 
     /** Move to a new position northward, possibly skidding */
-    fun moveNorth(): HooverState =
+    fun moveNorth(): HooverRobotState =
         moveToEffective(
             currentPosition.copy(
                 y = minOf(currentPosition.y + 1, maxPosition.y)))
 
     /** Move to a new position southward, possibly skidding */
-    fun moveSouth(): HooverState =
+    fun moveSouth(): HooverRobotState =
         moveToEffective(
             currentPosition.copy(y = maxOf(currentPosition.y - 1, 0)))
 
     /** Move to a new position eastward, possibly skidding */
-    fun moveEast(): HooverState =
+    fun moveEast(): HooverRobotState =
         moveToEffective(
             currentPosition.copy(
                 x = minOf(currentPosition.x + 1, maxPosition.x)))
 
     /** Move to a new position westward, possibly skidding */
-    fun moveWest(): HooverState =
+    fun moveWest(): HooverRobotState =
         moveToEffective(
             currentPosition.copy(x = maxOf(currentPosition.x - 1, 0)))
 
     /**
      * Move to a new position towards the given [direction], possibly skidding
      */
-    fun move(direction: CardinalDirection): HooverState =
+    fun move(direction: CardinalDirection): HooverRobotState =
         when (direction) {
             CardinalDirection.N -> moveNorth()
             CardinalDirection.S -> moveSouth()

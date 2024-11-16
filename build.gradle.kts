@@ -15,7 +15,7 @@ spotless {
   kotlin {
     target("**/*.kt")
     // version, style and all configurations here are optional
-    ktfmt("0.53").kotlinlangStyle().configure {
+    ktfmt("0.53").googleStyle().configure {
       it.setMaxWidth(80)
       it.setBlockIndent(4)
       it.setContinuationIndent(4)
