@@ -1,10 +1,11 @@
 [versions]
+jakarta-validation-api-version = "3.0.2"
 kotlin-version = "1.9.25"
-wimdeblauwe-error-handling-version = "4.5.0"
 springdoc-version = "2.6.0"
 spring-boot-version = "3.3.4"
 spring-boot-management-version = "1.1.6"
-jakarta-validation-api-version = "3.0.2"
+spotless-version = "7.0.0.BETA3"
+wimdeblauwe-error-handling-version = "4.5.0"
 
 [libraries]
 wimdeblauwe-error-handling = { module = "io.github.wimdeblauwe:error-handling-spring-boot-starter", version.ref = "wimdeblauwe-error-handling-version" }
@@ -23,3 +24,4 @@ kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotl
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin-version" }
 spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot-version" }
 spring-dependencymanager = { id = "io.spring.dependency-management", version.ref = "spring-boot-management-version" }
+spotless = { id = "com.diffplug.spotless", version.ref = "spotless-version" }

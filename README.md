@@ -54,3 +54,11 @@ We only provide a couple of quick, basic tests per API version:
 	./gradlew app:bootRun
 
 Browse http://localhost:8080/swagger-ui/index.html to explore and try the API using a Swagger UI.
+
+### Formatting
+
+This project uses [Spotless](https://github.com/diffplug/spotless?tab=readme-ov-file#-spotless-keep-your-code-spotless) 
+and [ktfmt](https://facebook.github.io/ktfmt/) for code formatting. If you edit a file and the build complains, simply 
+run spotless to format your code:
+
+    ./gradlew :spotlessApply
