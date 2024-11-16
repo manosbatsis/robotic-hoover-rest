@@ -9,7 +9,7 @@ including comments/assumptions (see $${\color{green}Tip}$$ sections) in [docs/AS
 
 ## Modules
 
-- api: Open API definitions, models and constants useful API clients. 
+- api: Open API definitions, models and constants useful to API clients. 
   See packages for API [v1](api/src/main/kotlin/com/github/manosbatsis/robotichooverrest/api/instruction/v1) 
   and [v2](api/src/main/kotlin/com/github/manosbatsis/robotichooverrest/api/instruction/v2).
 - app: Backend REST services application based on Spring Boot. See packages for API 
