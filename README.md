@@ -7,9 +7,7 @@ Spring Boot service that navigates an imaginary robotic hoover
 This repo was a sample assignment. You can find the annotated assignment 
 including comments/assumptions (see $${\color{green}Tip}$$ sections) in [docs/ASSIGNMENT.md](doc/ASSIGNMENT.md).
 
-### API Versions
-
-Based on our assignment comments (see above) this repo provides two API versions:
+Based on our assignment comments above, this repo provides two API versions:
 
 - v1.0 as requested in the assignment
 - v2.0 according to our comments.
@@ -26,7 +24,7 @@ Based on our assignment comments (see above) this repo provides two API versions
   see packages [here](client/src/main/kotlin/com/github/manosbatsis/robotichooverrest/client/instruction).
 - domain: Framework-independent core implementation, see package [here](domain/src/main/kotlin/com/github/manosbatsis/robotichooverrest/domain/instruction).
 
-This allows some flexibility and proper decoupling, like creating the client module and even use that from within 
+This allows more flexibility and proper decoupling, like creating the client module and using that in 
 `app` module tests without circular dependencies. Breaking v1 and v2 bits to separate modules was considered 
 unnecessary complexity for this repo.
 
