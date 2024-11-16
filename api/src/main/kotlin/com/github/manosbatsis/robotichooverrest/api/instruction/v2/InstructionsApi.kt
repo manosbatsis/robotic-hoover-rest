@@ -10,10 +10,8 @@
  * You should have received a copy of the GNU Affero General Public License along with Foobar. If not, see
  * <https://www.gnu.org/licenses/>.
  */
-package com.github.manosbatsis.robotichooverrest.app.instruction.v1
+package com.github.manosbatsis.robotichooverrest.api.instruction.v2
 
-import com.github.manosbatsis.robotichooverrest.api.instruction.v1.InstructionsRequest
-import com.github.manosbatsis.robotichooverrest.api.instruction.v1.InstructionsResponse
 import io.github.wimdeblauwe.errorhandlingspringbootstarter.ApiErrorResponse
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.Content
@@ -30,11 +28,11 @@ import org.springframework.web.bind.annotation.RequestMapping
 interface InstructionsApi {
 
     @Operation(
-        operationId = "instructionsv_1.0",
+        operationId = "instructions_v2.0",
         summary = "Process instructions",
         description =
             "Process the given hoover instructions request and provide a report as response",
-        tags = ["v1"])
+        tags = ["v2"])
     @ApiResponses(
         value =
             [

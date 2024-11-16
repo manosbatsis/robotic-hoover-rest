@@ -12,6 +12,7 @@
  */
 package com.github.manosbatsis.robotichooverrest.app.instruction.v2
 
+import com.github.manosbatsis.robotichooverrest.api.instruction.v2.InstructionsApi
 import com.github.manosbatsis.robotichooverrest.api.instruction.v2.InstructionsRequest
 import com.github.manosbatsis.robotichooverrest.api.instruction.v2.InstructionsResponse
 import com.github.manosbatsis.robotichooverrest.domain.instruction.HooverInstructionsExecutor
