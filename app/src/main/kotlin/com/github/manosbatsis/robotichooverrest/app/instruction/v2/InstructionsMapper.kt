@@ -20,24 +20,21 @@ import com.github.manosbatsis.robotichooverrest.domain.instruction.HooverRobotSt
 /** Helper component to convert between data object types */
 class InstructionsMapper {
 
-    fun instructionsResponse(hooverState: HooverRobotState): InstructionsResponse {
-        return InstructionsResponse(
+    fun instructionsResponse(hooverState: HooverRobotState) =
+        InstructionsResponse(
             positions =
                 InstructionsResponse.Positions(
                     final = hooverState.currentPosition,
                     cleaned = hooverState.cleanedPatches,
                     effectiveInstructions = hooverState.positionStack),
             cleanedCount = hooverState.cleanCount)
-    }
 
     fun hooverInstructionsCommand(input: InstructionsRequest): HooverInstructionsCommand {
         val positions = input.positions!!
-        val command =
-            HooverInstructionsCommand(
-                initialPosition = positions.initial!!.gridPosition(),
-                maxPosition = positions.boundsInclusive!!.gridPosition(),
-                dirtyPositions = positions.dirty!!.map { it.gridPosition() },
-                instructions = input.instructions!!)
-        return command
+        return HooverInstructionsCommand(
+            initialPosition = positions.initial!!.gridPosition(),
+            maxPosition = positions.boundsInclusive!!.gridPosition(),
+            dirtyPositions = positions.dirty!!.map { it.gridPosition() },
+            instructions = input.instructions!!)
     }
 }
